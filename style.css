@@ -14,37 +14,88 @@ html {
      font-family: 'Open Sans'; /* sets our font to the "Open Sans" typeface */
      color: white;             /* sets the text color to white */
      min-height: 100%;         /* says the height of the body must be, at minimum, 100% of the window */
+     margin: 0 auto;
+     
    
     
      
  }
  
 
-
 .navbar {
+    position: relative;
      padding: 0.5rem;
-     background-color: rgb(101,18,95);
+     background-color: rgb(101,18,95, 0.5);
+    z-index: 1;
  }
- 
- .navbar .logo {
+  .navbar .logo {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
+      cursor: pointer;
  }
+
+/*Collection Nav Bar */
+.navbar .links-container {
+     display: table;
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100px;
+     color: white;
+     /* #3 */
+     text-decoration: none;
+ }
+
+.links-container .navbar-link {
+     display: table-cell;
+     position: relative;
+     height: 100%;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     /* #4 */
+     vertical-align: middle;
+     color: white;
+     font-size: 0.625rem;
+     letter-spacing: 0.05rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     /* #3 */
+     text-decoration: none;
+     cursor: pointer;
+ }
+
+.links-container .navbar-link:hover {
+     color: rgb(233,50,117);
+ }
+
+/*End Collection Nav Bar*/
+
+.selling-points {
+     position: relative;
+/*
+     display: table;
+     width: 100%;
+*/
+
+}
+
+point {
+/*     display: table-cell;*/
+     position: relative;
+     padding: 2rem;
+/*     width: 33.3%;*/
+     text-align: center;
+ }
+
+
 
 
 /*Media Query*/
 
+@media (min-width: 640px) {
+     html { font-size: 112%; }
 
-
-@media only screen 
-    and (min-width: 640px)
-/*    and (orientation: landscape)*/
-{
-    
-    html {
-        font-size: 112%;
-    }
-    .column {
+     .column {
          float: left;
          padding-left: 1rem;
          padding-right: 1rem;
@@ -55,8 +106,8 @@ html {
      .column.half { width: 50%; }
      .column.third { width: 33.3%; }
      .column.fourth { width: 25%; }
-     .column.flow-opposite { float: right; } 
-}
+     .column.flow-opposite { float: right; }  
+ }
 
 @media only screen 
     and (min-width: 1024px) {
@@ -79,3 +130,9 @@ html {
 .clearfix::after {
    clear: both;
 }
+.navbar-link:active {
+    background-color: white;
+    
+}
+
+
