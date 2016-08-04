@@ -1,12 +1,11 @@
-
-body.landing {
+ body.landing {
      background-color: rgb(58,23,63);
  }
- 
+
  .hero-content {
      position: relative;
      min-height: 600px;
-     background-image: url(../assets/images/bloc_jams_bg.jpg);
+     background-image: url(assets/images/bloc_jams_bg.jpg);
      background-repeat: no-repeat;
      background-position: center center;
      background-size: cover;
@@ -29,11 +28,10 @@ body.landing {
  
  .selling-points {
      position: relative;
-/*     display: table;*/
-/*     width: 100%;*/
-     -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-     box-sizing: border-box;
+/*
+     display: table;
+     width: 100%;
+*/
  }
  
  .point {
@@ -53,4 +51,13 @@ body.landing {
  .ion-iphone {
      color: rgb(233,50,117);
      font-size: 5rem;
+ }
+
+@media (min-width: 640px) {
+     html { font-size: 112%; }
+ }
+
+ /* Large screens (1024px) */
+ @media (min-width: 1024px) {
+     html { font-size: 120%; }
  }
