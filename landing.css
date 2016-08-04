@@ -14,6 +14,7 @@
  .hero-content .hero-title {
      position: absolute;
      top: 40%;
+     -webkit-animation: colorChange 5s infinite;
      -webkit-transform: translateY(-50%);
      -moz-transform: translateY(-50%);
      transform: translateY(-50%);
@@ -25,6 +26,31 @@
      letter-spacing: 0.5rem;
      text-shadow: 1px 1px 0px rgb(58,23,63);
  }
+
+@-webkit-keyframes colorChange {
+    from {
+          
+          color: hotpink;
+          font-weight: 300;
+      }
+    to
+           color: white;
+        
+           font-weight: 300; 
+       }
+}
+
+/* Standard syntax */
+@keyframes colorChange {
+    from {  
+          color: hotpink;
+        font-weight: 300; 
+    }
+    to {  
+          color: white;
+        font-weight: 300; 
+    }
+}
  
  .selling-points {
      position: relative;
@@ -46,12 +72,12 @@
      -webkit-transform: scaleX(0.9) translateY(3rem);
      -moz-transform: scaleX(0.9) translateY(3rem);
      transform: scaleX(0.9) translateY(3rem);
-     -webkit-transition: all 0.25s ease-in-out;
-     -moz-transition: all 0.25s ease-in-out;
-     transition: all 0.25s ease-in-out;
-     -webkit-transition-delay: 0.2s;
-     -moz-transition-delay: 0.2s;
-     transition-delay: 0.2s;
+     -webkit-transition: all 0.50s ease-in-out;
+     -moz-transition: all 0.50s ease-in-out;
+     transition: all 0.50s ease-in-out;
+     -webkit-transition-delay: 0.5s;
+     -moz-transition-delay: 0.5s;
+     transition-delay: 0.5s;
      
      
  }
