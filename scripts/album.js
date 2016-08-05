@@ -44,6 +44,8 @@ var createSongRow = function(songNumber, songName, songLength) {
         '<tr class="album-view-song-item">'
         //store song number in html
         //Children(0)=<td> first below
+        //use HTML5 data attributes. As the name suggests, 
+        //HTML data attributes allow us to store information in an attribute on an HTML element.
       + '  <td class="song-item-number" data-song-number="' + songNumber + '">' +songNumber + '</td'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
