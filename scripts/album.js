@@ -42,7 +42,9 @@ var albumPicasso = {
 var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
-      + '  <td class="song-item-number">' + songNumber + '</td>'
+        //store song number in html
+        //Children(0)=<td> first below
+      + '  <td class="song-item-number" data-song-number="' + songNumber + '">' +songNumber + '</td'
       + '  <td class="song-item-title">' + songName + '</td>'
       + '  <td class="song-item-duration">' + songLength + '</td>'
       + '</tr>'
@@ -99,6 +101,14 @@ var setCurrentAlbum = function(album){
     
 };
 
+var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+
+//Detect the Mouse Leaving
+var songRows = document.getElementsByClassName('album-view-song-item');
+
+var playButtonTemplate= '<a class="album-song-button"><span class="ion-play"></span></a>';
+
+
 
 window.onload = function() {
    setCurrentAlbum(myAlbum);
@@ -111,23 +121,64 @@ window.onload = function() {
 //    });
     
         
-             albumImage.addEventListener('click',function (event){
+    albumImage.addEventListener('click',function (event){
                  
-                 switch(albumImage.getAttribute('src')){
-                         case 'assets/images/album_covers/01.png':
-                            setCurrentAlbum(myAlbum);
-                            break;
-                         case 'assets/images/album_covers/20.png':
-                            setCurrentAlbum(albumPicasso)
-                            break;
-                         case 'assets/images/album_covers/02.png':
-                            setCurrentAlbum(albumMarconi);
-                            break;
-                        default:
-                         setCurrentAlbum(myAlbum);
-                 }
+        switch(albumImage.getAttribute('src')){
+            case 'assets/images/album_covers/01.png':
+                setCurrentAlbum(myAlbum);
+                break;
+            case 'assets/images/album_covers/20.png':
+                 setCurrentAlbum(albumPicasso)
+                 break;
+            case 'assets/images/album_covers/02.png':
+                setCurrentAlbum(albumMarconi);
+                break;
+             default:
+                setCurrentAlbum(myAlbum);
+        }
              
-             });  
+    });  
+    
+    //Add Event Mouse OVer
+    
+    songListContainer.addEventListener('mouseover', function(event){
+        
+       // console.log(event.target);
+        //album-view-song-item is created in album.js. it is not created in album.html
+        //make sure that we only act on the table row
+        if (event.target.parentElement.className === 'album-view-song-item') {
+             // Change the content from the number to the play button's HTML
+            //use the querySelector() method because we only need to return a single element
+            //playButtonTemplate is '<a href> as a button
+            //we assign <a href> with name: album-song-button... to each song number <td>
+            event.target.parentElement.querySelector('.song-item-number').innerHTML= playButtonTemplate;
+            
+         }
+    });
+    
+    
+    //Add Event Mouse leave to return number back
+    
+    for(var i=0; i < songRows.length; i++){
+        //Note: document.getElementsByClassName('album-view-song-item')[i].addEventListener....
+        //Note: songRows=document.getElementsByClassName('album-view-song-item');
+        songRows[i].addEventListener('mouseleave', function(event){
+             // Selects first child element, which is class="song-item-number" ==> <td>
+            //this = album-view-song-item <tr>. it is called songRows [i]
+            //return the song number back originally to its list name after mouse leave
+            //the nmber will be beween <td class="..."> 1 </td>
+            //<td class="..."> 2 </td> and so on
+            
+            this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+            console.log(this.children[0].getAttribute('data-song-number'));
+            console.log(this.children[0].innerHTML);
+            
+            
+            
+        });
+    }
+    
+    
 };
 
 
