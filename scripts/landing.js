@@ -1,43 +1,23 @@
-<<<<<<< HEAD
-var animatePoints = function() {
- 
-                 var points = document.getElementsByClassName('point');
- 
-                 var revealPoint = function() {
-                     for (var i= 0 ; i<3; i++){
-                     points[i].style.opacity = 1;
-                     points[i].style.transform = "scaleX(1) translateY(0)";
-                     points[i].style.msTransform = "scaleX(1) translateY(0)";
-                     points[i].style.WebkitTransform = "scaleX(1) translateY(0)";
-                         
-                     }
-                     
-                 };
- 
-//                 var revealSecondPoint = function() {
-//                     points[1].style.opacity = 1;
-//                     points[1].style.transform = "scaleX(1) translateY(0)";
-//                     points[1].style.msTransform = "scaleX(1) translateY(0)";
-//                     points[1].style.WebkitTransform = "scaleX(1) translateY(0)";
-//                 };
-// 
-//                 var revealThirdPoint = function() {
-//                     points[2].style.opacity = 1;
-//                     points[2].style.transform = "scaleX(1) translateY(0)";
-//                     points[2].style.msTransform = "scaleX(1) translateY(0)";
-//                     points[2].style.WebkitTransform = "scaleX(1) translateY(0)";
-//                 };
-// 
-//                 revealFirstPoint();
-//                 revealSecondPoint();
-//                 revealThirdPoint();
-                   revealPoint();
- 
-             };
-            
-          animatePoints();
-=======
+//note js  inherit clas names. Ex: points and point from HTML (index.html)
 var pointsArray = document.getElementsByClassName('point');
+var revealPoint = function(point) {
+                     point.style.opacity = 1;
+                     point.style.transform = "scaleX(1) translateY(0)";
+                     point.style.msTransform = "scaleX(1) translateY(0)";
+                     point.style.WebkitTransform = "scaleX(1) translateY(0)";
+                 };
+//revealPoint(index)==> points[index] ==> point
+var animatePoints = function(points) {
+    forEach(points, revealPoint);
+                 
+    
+//                for(var i=0; i < points.length; i++){
+//                    revealPoint(i);
+//                }
+                    
+ };
+
+
 var animatePoints = function(points) {
                  var revealPoint = function(index) {
                      points[index].style.opacity = 1;
@@ -76,5 +56,4 @@ window.onload = function() {
  }
 
 
-            
->>>>>>> master
+
