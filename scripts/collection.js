@@ -1,3 +1,5 @@
+
+
 var collectionItemTemplate = 
     '<div class="collection-album-container column fourth">'
 +        '<img src="assets/images/album_covers/01.png">'
@@ -22,6 +24,7 @@ window.onload =function(){
     for(var i=0; i< 12; i++){
         collectionContainer.innerHTML +=collectionItemTemplate;
     }
+    
     
     
 }
